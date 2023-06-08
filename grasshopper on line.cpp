@@ -116,10 +116,16 @@ int npow(int a,int b){
 // };
 
 void solve(){
-   vint ve(3);
-   fr(i,3){cin>>ve[i];}
-   srt(ve);
-   cout<<(abs(ve[1]-ve[0])+abs(ve[2]-ve[1]))<<endl;
+   int x,k;cin>>x>>k;
+   int jmpcont=0;
+   vint ans;
+   if(x<k or x%k!=0){
+   	cout<<1<<endl;
+   	cout<<x<<endl;
+   }else{
+   	cout<<2<<endl;
+   	cout<<1<<" "<<(x-1)<<endl;
+   }
 }
 
 int32_t main(){
@@ -130,7 +136,7 @@ int32_t main(){
     #endif
     clock_t z = clock();
     int t=1;
-    //cin>>t;
+    cin>>t;
     while (t--){solve();}
     cerr << "\nRun Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
     return 0;

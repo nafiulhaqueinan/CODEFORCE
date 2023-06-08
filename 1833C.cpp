@@ -40,7 +40,7 @@ using namespace std;
 #define pf          push_front
 #define F           first
 #define S           second
-#define vint        std::vector<int> 
+#define vint		std::vector<int> 
 #define mp          midpoint
 #define READ(x)     freopen(x,"r",stdin)
 #define WRITE(x)    freopen(x,"w",stdout)
@@ -49,7 +49,7 @@ using namespace std;
 #define bug(...) __f (#__VA_ARGS__,__VA_ARGS__)
 #define fr(i,n)     for(int i=0; i<(n); i++)
 #define rep(i,a,n)  for(int i=(a);i<=(n);i++)
-#define fat(n)      for(auto x:n)
+#define fat(n)		for(auto x:n)
 #define srt(v)      sort(v.begin(),v.end())
 #define all(v)      v.begin(),v.end()
 #define mxe(v)      *max_element(all(v))// find max element in vector
@@ -116,10 +116,39 @@ int npow(int a,int b){
 // };
 
 void solve(){
-   vint ve(3);
-   fr(i,3){cin>>ve[i];}
-   srt(ve);
-   cout<<(abs(ve[1]-ve[0])+abs(ve[2]-ve[1]))<<endl;
+   int n;cin>>n;
+   vint ve(n);
+   fr(i,n){cin>>ve[i];}
+   vint oddV,EvenV;
+   fat(ve){
+   	if(x&1)
+   		oddV.pb(x);
+   	else
+   		EvenV.pb(x);
+   }
+   srt(oddV);
+   srt(EvenV);
+   bool ee=true,oo=true;
+   fr(i,n){
+   	if(ve[i]%2==0)continue;
+   	if(oddV.empty() or oddV[0]>=ve[i]){
+   		ee=false;
+   		break;
+   	}
+   }
+   fr(i,n){
+   	if(ve[i]%2!=0)continue;
+   	if(oddV.empty() or oddV[0]>=ve[i]){ 
+   		oo=false;
+   		break;
+   	}
+   }
+   if(ee or oo){
+   	cout<<"Yes"<<endl;
+   }else{
+   	cout<<"NO"<<endl;
+   }
+
 }
 
 int32_t main(){
@@ -130,7 +159,7 @@ int32_t main(){
     #endif
     clock_t z = clock();
     int t=1;
-    //cin>>t;
+    cin>>t;
     while (t--){solve();}
     cerr << "\nRun Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
     return 0;
