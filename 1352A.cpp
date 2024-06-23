@@ -13,6 +13,9 @@ int main(){
 		}
 
 
+
+
+
 	
 	
 		sort(arr,arr+4);
