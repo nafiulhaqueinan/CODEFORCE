@@ -3,10 +3,10 @@ using namespace std;
 
 int main(){
 
-#ifndef ONLINE_JUDGE
-	freopen("input.txt","r",stdin);
-	freopen("output.txt","w",stdout);
-#endif
+
+
+
+	
 		int arr[4];
 		for(int i=0;i<4;i++){
 			cin>>arr[i];
@@ -16,6 +16,10 @@ int main(){
 
 
 
+
+
+
+	
 	
 	
 		sort(arr,arr+4);
